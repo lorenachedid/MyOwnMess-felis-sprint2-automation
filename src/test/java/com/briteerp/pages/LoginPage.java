@@ -7,16 +7,26 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     @FindBy(xpath = "//*[@id='login']")
-    public WebElement inputLogin;
+    public WebElement inputEmail;
 
     @FindBy(xpath = "//*[@id='password']")
     public WebElement inputPassword;
 
     @FindBy(xpath = "//button[@type='submit']")
-    public WebElement buttonLogin;
+    public WebElement loginButton;
 
 
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
+
+    public void login(String username,String password){
+        inputEmail.sendKeys(username);
+        inputPassword.sendKeys(password);
+        loginButton.click();
+    }
+
+
+
 }
